@@ -16,25 +16,39 @@ A simple REST API in Go with PostgreSQL, Docker, API versioning, and hot reload 
 
 ## Folder Structure
 ```
-go-ping-app/
-├── cmd/
-│ └── main.go
-├── config/
+cql-backend/
+├── cmd
+│ ├── main.go
+│ └── pkg
+│     └── validator
+│         └── validate.go
+├── config
 │ └── config.go
-├── db/
-│ └── postgres.go
-├── handlers/
-│ └── v1/
-│ └── ping.go
-├── routes/
-│ └── v1/
-│ └── router.go
-├── .air.toml
-├── Dockerfile
-├── docker-compose.yml
+├── db
+│ ├── postgres.go
+│ ├── repositories
+│ │ └── user_repository.go
+│ └── store.go
 ├── docker-compose.override.yml
+├── docker-compose.yml
+├── Dockerfile
 ├── go.mod
-└── go.sum
+├── go.sum
+├── handlers
+│ └── v1
+│     ├── ping_handler.go
+│     └── user_handler.go
+├── models
+│ └── user.go
+├── README.md
+├── routes
+│ └── v1
+│     ├── ping_routes.go
+│     ├── router.go
+│     └── user_routes.go
+├── services
+│ └── user_service.go
+
 ```
 
 
