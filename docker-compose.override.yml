@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  app:
+    volumes:
+      - .:/app
+      - air_tmp:/tmp
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: cql
+    command: air
+    depends_on:
+      - db
+
+volumes:
+  air_tmp:
