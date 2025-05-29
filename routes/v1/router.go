@@ -1,11 +1,13 @@
 package v1
 
 import (
-	v1 "cql-backend/handlers/v1"
+	"cql-backend/db"
 	"github.com/gorilla/mux"
 )
 
-func RegisterV1Routes(r *mux.Router) {
+func RegisterV1Routes(r *mux.Router, store *db.Store) {
 	v1Router := r.PathPrefix("/api/v1").Subrouter()
-	v1Router.HandleFunc("/ping", v1.Ping).Methods("GET")
+
+	RegisterHealthRoutes(v1Router)
+	RegisterUserRoutes(v1Router, store)
 }

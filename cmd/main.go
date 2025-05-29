@@ -3,6 +3,7 @@ package main
 import (
 	"cql-backend/config"
 	"cql-backend/db"
+	"cql-backend/models"
 	"log"
 	"net/http"
 
@@ -12,10 +13,17 @@ import (
 
 func main() {
 	config.LoadEnv()
-	db.InitPostgres()
+
+	dbConn := db.InitPostgres()
+
+	if err := dbConn.AutoMigrate(&models.User{}); err != nil {
+		log.Fatal("Migration failed: ", err)
+	}
+
+	store := db.NewStore(dbConn)
 
 	r := mux.NewRouter()
-	v1routes.RegisterV1Routes(r)
+	v1routes.RegisterV1Routes(r, store)
 
 	log.Println("Server running on :8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
