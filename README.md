@@ -16,7 +16,7 @@ A simple REST API in Go with PostgreSQL, Docker, API versioning, and hot reload 
 
 ## Folder Structure
 ```
-cql-backend/
+go-recipe/
 ├── cmd
 │ ├── main.go
 │ └── pkg

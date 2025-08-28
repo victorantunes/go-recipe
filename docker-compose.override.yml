@@ -10,7 +10,7 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: cql
+      DB_NAME: db
     command: air
     depends_on:
       - db

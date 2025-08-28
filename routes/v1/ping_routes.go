@@ -1,7 +1,8 @@
 package v1
 
 import (
-	"cql-backend/handlers/v1"
+	"go-recipe/handlers/v1"
+
 	"github.com/gorilla/mux"
 )
 

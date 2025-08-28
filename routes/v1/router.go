@@ -1,13 +1,15 @@
 package v1
 
 import (
-	"cql-backend/db"
+	"go-recipe/db"
+
 	"github.com/gorilla/mux"
 )
 
-func RegisterV1Routes(r *mux.Router, store *db.Store) {
-	v1Router := r.PathPrefix("/api/v1").Subrouter()
+func RegisterV1Routes(r *mux.Router, dataStore *db.DataStore) {
+	RegisterHealthRoutes(r)
 
-	RegisterHealthRoutes(v1Router)
-	RegisterUserRoutes(v1Router, store)
+	v1Router := r.PathPrefix("/api/v1").Subrouter()
+	RegisterUserRoutes(v1Router, dataStore)
+	RegisterCompanyRoutes(v1Router, dataStore)
 }

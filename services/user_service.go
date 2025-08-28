@@ -1,10 +1,10 @@
 package services
 
 import (
-	"cql-backend/cmd/pkg/validator"
-	"cql-backend/db/repositories"
-	"cql-backend/models"
 	"errors"
+	"go-recipe/cmd/pkg/validator"
+	"go-recipe/db/repositories"
+	"go-recipe/models"
 )
 
 type UserService struct {
@@ -41,8 +41,8 @@ func (s *UserService) GetUserByEmail(email string) (*models.User, error) {
 	return s.repo.GetByEmail(email)
 }
 
-func (s *UserService) ListUsers() ([]models.User, error) {
-	return s.repo.List()
+func (s *UserService) ListUsers(companyId string) ([]models.User, error) {
+	return s.repo.List(companyId)
 }
 
 func (s *UserService) DeleteUser(id uint) error {

@@ -1,13 +1,14 @@
 package v1
 
 import (
-	"cql-backend/db"
-	"cql-backend/handlers/v1"
-	"cql-backend/services"
+	"go-recipe/db"
+	"go-recipe/handlers/v1"
+	"go-recipe/services"
+
 	"github.com/gorilla/mux"
 )
 
-func RegisterUserRoutes(r *mux.Router, store *db.Store) {
+func RegisterUserRoutes(r *mux.Router, store *db.DataStore) {
 	userService := services.NewUserService(store.UserRepository)
 	userHandler := v1.NewUserHandler(userService)
 
