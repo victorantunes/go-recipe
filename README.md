@@ -13,43 +13,13 @@ A simple REST API in Go with PostgreSQL, Docker, API versioning, and hot reload 
 - Hot reload in development with [air](https://github.com/cosmtrek/air)
 
 ---
-
-## Folder Structure
-```
-go-recipe/
-├── cmd
-│ ├── main.go
-│ └── pkg
-│     └── validator
-│         └── validate.go
-├── config
-│ └── config.go
-├── db
-│ ├── postgres.go
-│ ├── repositories
-│ │ └── user_repository.go
-│ └── store.go
-├── docker-compose.override.yml
-├── docker-compose.yml
-├── Dockerfile
-├── go.mod
-├── go.sum
-├── handlers
-│ └── v1
-│     ├── ping_handler.go
-│     └── user_handler.go
-├── models
-│ └── user.go
-├── README.md
-├── routes
-│ └── v1
-│     ├── ping_routes.go
-│     ├── router.go
-│     └── user_routes.go
-├── services
-│ └── user_service.go
-
-```
+## Tech Stack
+- [Go](https://go.dev/)
+- [Gorilla/mux](https://github.com/gorilla/mux)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [air](https://github.com/air-verse/air)
 
 
 ## Getting Started
@@ -66,12 +36,12 @@ go-recipe/
 Set these variables in your environment or via Docker Compose:
 
 | Variable      | Description          | Example    |
-| ------------- | -------------------- | ---------- |
+| ------------- | -------------------- |------------|
 | `DB_HOST`     | PostgreSQL hostname  | `db`       |
 | `DB_PORT`     | PostgreSQL port      | `5432`     |
 | `DB_USER`     | PostgreSQL user      | `postgres` |
 | `DB_PASSWORD` | PostgreSQL password  | `postgres` |
-| `DB_NAME`     | Database name        | `pingdb`   |
+| `DB_NAME`     | Database name        | `db`       |
 
 ---
 
@@ -81,7 +51,7 @@ Set these variables in your environment or via Docker Compose:
   docker-compose up --build
 ```
 
-- API available at: `http://localhost:8080/api/v1/ping`
+- API available at: `http://localhost:8080/ping`
 - PostgreSQL accessible on port 5432
 
 ---
