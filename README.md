@@ -71,7 +71,7 @@ Set these variables in your environment or via Docker Compose:
 ### Test API
 
 ```bash
-  curl http://localhost:8080/api/v1/ping
+  curl http://localhost:8080/ping
 ```
 
 Expected JSON:
