@@ -3,6 +3,7 @@ package v1
 import (
 	"encoding/json"
 	"go-recipe/models"
+	"go-recipe/models/dto"
 	"go-recipe/services"
 	"net/http"
 	"strconv"
@@ -47,7 +48,8 @@ func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ReturnJSON(w, http.StatusOK, user)
+	userDto := dto.MapUserToResponse(*user)
+	ReturnJSON(w, http.StatusOK, userDto)
 }
 
 func (h *UserHandler) ListUsers(w http.ResponseWriter, r *http.Request) {
@@ -60,7 +62,8 @@ func (h *UserHandler) ListUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ReturnJSON(w, http.StatusOK, users)
+	usersDto := dto.MapUsersToResponse(users)
+	ReturnJSON(w, http.StatusOK, usersDto)
 }
 
 func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request) {

@@ -6,21 +6,22 @@ A simple REST API in Go with PostgreSQL, Docker, API versioning, and hot reload 
 
 ## Features
 
-- Basic `/api/v1/ping` route returning JSON `{ "message": "pong" }`
+- Basic `/ping` route returning JSON `{ "message": "pong" }`
 - PostgreSQL integration with Docker Compose
 - API versioning (`/api/v1`)
 - Docker multi-stage build for production
 - Hot reload in development with [air](https://github.com/cosmtrek/air)
 
 ---
+
 ## Tech Stack
+
 - [Go](https://go.dev/)
 - [Gorilla/mux](https://github.com/gorilla/mux)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [air](https://github.com/air-verse/air)
-
 
 ## Getting Started
 
@@ -35,13 +36,13 @@ A simple REST API in Go with PostgreSQL, Docker, API versioning, and hot reload 
 
 Set these variables in your environment or via Docker Compose:
 
-| Variable      | Description          | Example    |
-| ------------- | -------------------- |------------|
-| `DB_HOST`     | PostgreSQL hostname  | `db`       |
-| `DB_PORT`     | PostgreSQL port      | `5432`     |
-| `DB_USER`     | PostgreSQL user      | `postgres` |
-| `DB_PASSWORD` | PostgreSQL password  | `postgres` |
-| `DB_NAME`     | Database name        | `db`       |
+| Variable      | Description         | Example    |
+|---------------|---------------------|------------|
+| `DB_HOST`     | PostgreSQL hostname | `db`       |
+| `DB_PORT`     | PostgreSQL port     | `5432`     |
+| `DB_USER`     | PostgreSQL user     | `postgres` |
+| `DB_PASSWORD` | PostgreSQL password | `postgres` |
+| `DB_NAME`     | Database name       | `db`       |
 
 ---
 
@@ -68,11 +69,13 @@ Set these variables in your environment or via Docker Compose:
 ---
 
 ### Test API
+
 ```bash
   curl http://localhost:8080/api/v1/ping
 ```
 
 Expected JSON:
+
 ```json
 {
   "message": "pong"
@@ -84,6 +87,7 @@ Expected JSON:
 ## Development
 
 If you want to run locally without Docker:
+
 ```bash
   go run ./cmd/main.go
 ```

@@ -3,7 +3,9 @@ package v1
 import (
 	"encoding/json"
 	"go-recipe/models"
+	"go-recipe/models/dto"
 	"go-recipe/services"
+	"log"
 	"net/http"
 	"strconv"
 
@@ -47,7 +49,9 @@ func (h *CompanyHandler) GetCompany(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ReturnJSON(w, http.StatusOK, company)
+	log.Println("Fetched company:", company.Users)
+	companiesDto := dto.MapCompanyToResponse(*company)
+	ReturnJSON(w, http.StatusOK, companiesDto)
 }
 
 func (h *CompanyHandler) ListCompanies(w http.ResponseWriter, r *http.Request) {
@@ -57,7 +61,8 @@ func (h *CompanyHandler) ListCompanies(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ReturnJSON(w, http.StatusOK, companies)
+	companiesDto := dto.MapCompaniesToResponse(companies)
+	ReturnJSON(w, http.StatusOK, companiesDto)
 }
 
 func (h *CompanyHandler) DeleteCompany(w http.ResponseWriter, r *http.Request) {
